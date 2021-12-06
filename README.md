@@ -1,6 +1,16 @@
 # follow-api
 The Express API for the follow-the-nft
 
+## Contributors
+
+- Charlie Fadness
+- Tom McGuire
+- Heather Bisgaard
+- Jeremy Brazell
+
+## Usage
+
+## Testing
 
 ## Resources
 
