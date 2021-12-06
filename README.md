@@ -1,4 +1,4 @@
-# follow-api
+# Follow-API
 The Express API for the follow-the-nft
 
 ## Contributors
