@@ -2,8 +2,6 @@
 
 ## Vision
 
-#### Minimum Length: 3-5 sentences
-
 - What is the vision of this product?
 
 - What pain point does this project solve?
@@ -26,27 +24,39 @@
 ## Minimum Viable Product vs
 
 - What will your MVP functionality be?
+  - Our MVP functionality will have the user being able to send a post request to the Opensea API and bring able to grab the address, token ID, and image_URL.
 
 - What are your stretch goals?
+  - Adding Events
+  - Adding Multiple Users
+  - Having a link to the image through the terminal
+  - Adding a simple front end to display images
 
 ## Stretch
 
 - What stretch goals are you going to aim for?
+  - Adding Events
 
 ## Functional Requirements
 
 ### List the functionality of your product. This will consist of tasks such as the following:
 
 - An admin can create and delete user accounts
-- A user can update their profile information
-- A user can search all of the products in the inventory
+- A user can update thier NFT tokens
+- A user can search all of the NFT's in the Database
+- Call an API to grab information by parameters
+- The user can Delete info from our Database
+- A user will be able to like/follow and have those stored in the database
 
 ## Data Flow
 
-Describe the flow of data in your application. Write out what happens from the time the user begins using the app to the time the user is done with the app. Think about the “Happy Path” of the application. Describe through visuals and text what requests are made, and what data is processed, in addition to any other details about how the user moves through the site.
+The user will have a choice to log in or not. While not logged in, the user can view what NFT's they want, and if they are logged in, then can like/follow and save those to the database. 
 
-## Non-Functional Requirements (301 & 401 only)
-Non-functional requirements are requirements that are not directly related to the functionality of the application but still important to the app.
+Whenever they do a post request, it will send it to the Opensea API to grab that data is present. Then it will save it to the database if they are logged in. They can also delete from "their" database if they are signed in.
+
+For visuals, the user will be able to see the token, what NFT, and a link to their digital item.
+
+## Non-Functional Requirements
 
 ### Examples include:
 
