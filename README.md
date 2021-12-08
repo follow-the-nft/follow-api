@@ -55,6 +55,11 @@ An Application secured by Auth that allows the users to follow and/or like their
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+## Links
+
+[Heroku Dev Branch Deployment](https://follow-the-nft.herokuapp.com/)  
+[Kanban Board](https://github.com/orgs/follow-the-nft/projects/1/views/1)  
+
 <!-- TODO -->
 ## UML
 
