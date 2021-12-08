@@ -3,10 +3,13 @@
 ## Vision
 
 - What is the vision of this product?
+  - It will provide functionality to an online NFT gallery that is missing (following an artist) from the current implementation. It will also allow the user to login, find NFTs by address or artist and unfollow the artist.
 
 - What pain point does this project solve?
+  - It adds additional functionality to a site that currently does not have the capability to login.
 
 - Why should we care about your product?
+  - This streamlines the purchase process for online galleries/marketplaces and allows users to follow their favorite artists.
 
 ## Scope (In/Out)
 
@@ -36,6 +39,7 @@
 
 - What stretch goals are you going to aim for?
   - Adding Events
+  - Multiple users logged in at once
 
 ## Functional Requirements
 
@@ -58,18 +62,10 @@ For visuals, the user will be able to see the token, what NFT, and a link to the
 
 ## Non-Functional Requirements
 
-### Examples include:
+### Pick 2 non-functional requirements and describe their functionality in your application.
 
 - Security
+  - Security best practices are followed and kept up to date with industry standards. The bearer token is supplied from a third party authentication provider. PII (Personally Identifiable Information) is encrypted on our servers.
+
 - Usability
-- Testability
-- etc….
-
-## Pick 2 non-functional requirements and describe their functionality in your application.
-
-- Example 1
-- Example 2
-
-If you are stuck on what non-functional requirements are, do a quick online search and do some research. Write a minimum of 3-5 sentences to describe how the non-functional requirements fits into your app.
-
-You MUST describe what the non-functional requirement is and how it will be implemented. Simply saying “Our project will be testable for testibility” is NOT acceptable. Tell us how, why, and what.
+  - These new features will be used and create a new 'wow' factor. It will feel familiar and have a natural design pattern. The user will feel at 'home' on this site.
