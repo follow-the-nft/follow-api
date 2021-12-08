@@ -1,17 +1,25 @@
-# follow-the-nft-api
-The API for the follow-the-nft
+# Follow-API
+The Express API for the follow-the-nft
 
-### Running the API
-```sh
-# Install the dependencies
-npm install
+## Contributors
 
-# Running the API
-npm run dev
+- Charlie Fadness
+- Tom McGuire
+- Heather Bisgaard
+- Jeremy Brazell
 
-# Linting
-npm run lint
+## Usage
 
-# Running Tests
-npm run test
-```
+## Testing
+
+## Resources
+
+- [OpenSea API](https://docs.opensea.io/reference/api-overview)
+- [MetaMask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn)
+- [Crypto Art Evolution](https://youtu.be/2D6iqZLKhLY)
+- [How to create a peer to peer NFT marketplace](https://docs.tatum.io/tutorials/how-to-create-a-peer-to-peer-nft-marketplace)
+- []()
+- []()
+- []()
+- []()
+- []()
