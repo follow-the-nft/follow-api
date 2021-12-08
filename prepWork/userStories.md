@@ -7,11 +7,11 @@ As an NFT digital art investor, I want to see new digital art, so that I can pur
 **Feature Tasks:**  
 NFT digital art investor can view/add/delete NFT’s and favorite them or the artist.
 
-**Acceptnce Test:** 
+**Acceptence Test:** 
 Make sure NFT digital art investor can:
  - view artist name and NFT's for sale
  - follow artists
- - unfavorite artists
+ - unfollow artists
 
 ## User Story #2
 
@@ -20,7 +20,7 @@ As a digital art enthusiast, I want to look at cool art, so that I can own some.
 **Feature Tasks:**
 Digital art enthusiast can view/add/delete NFT’s and favorite their favorite digital artists.
 
-**Acceptnce Test:** 
+**Acceptance Test:** 
 Make sure digital art enthusiast can:
  - view artist name and NFT's for sale
  - follow artists
@@ -33,7 +33,7 @@ As a digital artist, I want to look at cool art, so that I can become inspired t
 **Feature Tasks:**
 Digital artist can view/add/delete NFT’s and favorite their favorite digital artists.
 
-**Acceptnce Test:** 
+**Acceptance Test:** 
 Make sure digital artist can:
  - view artist name and NFT's for sale
  - follow artists
@@ -47,7 +47,7 @@ As a digital art dealer, I want to look at a gallery of cool art, so that i can 
 **Feature Tasks:**
 Digital art dealer can view/add/delete NFT’s and favorite their favorite digital artists.
 
-**Acceptnce Test:** 
+**Acceptance Test:** 
 Make sure digital art dealer can:
  - view artist name and NFT's for sale
  - follow artists
@@ -60,7 +60,7 @@ As a lazy art fan who does not want to go to an actual gallery to see art, I wan
 **Feature Tasks:**
 Lazy art fan can view/add/delete NFT’s and favorite their favorite digital artists.
 
-**Acceptnce Test:** 
+**Acceptance Test:** 
 Make sure lazy art fan can:
  - view artist name and NFT's for sale
  - follow artists
