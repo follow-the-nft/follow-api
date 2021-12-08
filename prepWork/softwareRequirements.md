@@ -41,11 +41,13 @@
   - Adding Events
   - Multiple users logged in at once
 
+
 ## Functional Requirements
 
 ### List the functionality of your product. This will consist of tasks such as the following:
 
 - An admin can create and delete user accounts
+
 - A user can update thier NFT tokens
 - A user can search all of the NFT's in the Database
 - Call an API to grab information by parameters
