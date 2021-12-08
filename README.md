@@ -37,7 +37,6 @@
 
 An Application secured by Auth that allows the users to follow and/or like their favorite Non-Fungible Tokens (NFT).
 
-
 <!-- TABLE OF CONTENTS -->
 <div>
   <summary>Table of Contents</summary>
@@ -87,6 +86,21 @@ npm run dev
 
 # Running tests
 npm run test
+```
+
+## Request API Key from [Opensea](https://docs.opensea.io/reference/request-an-api-key)
+
+API is free to use on lmited basis. To use the API in a production environment, request key from URL above. Enter email address, project name, project description, and a link to the project website. Approval takes 1-2 days.
+
+Use API key in the header of request. Example:
+
+```Javascript
+const options = {method: 'GET', headers: {'X-API-KEY': 'api key here'}};
+
+fetch('https://api.opensea.io/api/v1/asset/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb/1/', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
 ```
 
 <!-- TODO USAGE EXAMPLES 
