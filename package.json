@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint .",
     "test": "jest --coverage",
-    "dev": "NODE_ENV=development node index.js"
+    "dev": "NODE_ENV=development node index.js",
+    "route": "node ./src/routes/apiRoutes.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/follow-the-nft/follow-the-nft-api#readme",
   "dependencies": {
+    "axios": "^0.24.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1"
   },
