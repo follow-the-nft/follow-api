@@ -1,11 +1,11 @@
 'use strict'
 
-const base64 = require('base-64')
+const base64 = require('base64-js')
 const { users } = require('../models/modelsIndex.js')
 
 module.exports = async (req, res, next) => {
   if (!req.headers.authorization) {
-    return _authError()
+    return authError()
   }
 
   let basic = req.headers.authorization.split(' ').pop()
@@ -15,10 +15,10 @@ module.exports = async (req, res, next) => {
     req.user = await users.authenticateBasic(user, pass)
     next()
   } catch (e) {
-    _authError()
+    authError()
   }
 
-  function _authError() {
+  function authError() {
     res.status(403).send('Invalid Login')
   }
 }
