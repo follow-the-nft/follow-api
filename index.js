@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
-require('dotenv').config
+require('dotenv').config;
 
-const server = require('./src/server')
+const server = require('./src/server');
 
-server.start(process.env.PORT || 3001)
+server.start(process.env.PORT || 3001);
 

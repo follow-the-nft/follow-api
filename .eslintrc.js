@@ -27,11 +27,11 @@ module.exports = {
     ],
     'semi': [
       'error',
-      'never'
+      'always'
     ],
     'eol-last': [
       'error',
       'always'
     ]
   }
-}
+};

@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint .",
     "test": "jest --coverage",
-    "dev": "NODE_ENV=development node index.js"
+    "dev": "NODE_ENV=development node index.js",
+    "route": "node ./src/routes/apiRoutes.js"
   },
   "repository": {
     "type": "git",
