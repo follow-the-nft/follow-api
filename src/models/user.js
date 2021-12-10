@@ -21,6 +21,14 @@ const userModel = (sequelize, DataTypes) => {
       required: true,
       defaultValue: 'user',
     },
+    follows: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      required: false,
+    },
+    likes: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      required: false,
+    },
     token: {
       type: DataTypes.VIRTUAL,
       get() {
@@ -39,14 +47,6 @@ const userModel = (sequelize, DataTypes) => {
         };
         return acl[this.role];
       },
-      follows: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        required: false,
-      },
-      likes: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        required: false,
-      },
     },
   });
 
@@ -55,7 +55,7 @@ const userModel = (sequelize, DataTypes) => {
     user.password = hashedPass;
   });
 
-  model.authenticateBasic = async function (username, password) {
+  model.authenticateBasic = async (username, password) => {
     const user = await this.findOne({ where: { username } });
     const valid = await bcrypt.compare(password, user.password);
     if (valid) {
@@ -64,7 +64,7 @@ const userModel = (sequelize, DataTypes) => {
     throw new Error('Invalid User');
   };
 
-  model.authenticateToken = async function (token) {
+  model.authenticateToken = async (token) => {
     try {
       const parsedToken = jwt.verify(token, SECRET);
       const user = this.findOne({ where: { username: parsedToken.username } });

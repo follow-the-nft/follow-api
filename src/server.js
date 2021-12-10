@@ -5,7 +5,8 @@ const express = require('express');
 
 // Import middleware and routes
 const errorHandler = require('./handlers/error-handler');
-const publicRoutes = require('./routes/public-routes');
+const publicRoutes = require('./routes/public');
+const userRoutes = require('./routes/user');
 
 // Prepare the express app
 const app = express();
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 
 // Routes
 app.use(publicRoutes);
+app.use(userRoutes);
 
 // Handlers TODO
 
