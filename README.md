@@ -79,6 +79,11 @@ npm install npm@latest -g
 # Clone the repository
 git clone git@github.com:follow-the-nft/follow-the-nft-api.git
 
+# Dev Database setup
+psql
+CREATE DATABASE "follow-the-nft";
+\q
+
 # Install dependencies
 npm install
 
