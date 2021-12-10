@@ -7,7 +7,8 @@ const mockRequest = supertest(server);
 
 let nftId = '20512672236384795134598454803080694359308106914252699625353424791001018400769';
 
-describe('Given GET', () => {
+// Use Nock to mock these requests - https://www.npmjs.com/package/nock
+describe.skip('Given GET', () => {
   describe("When'/nft/:id", () => {
     describe('valid request', () => {
       let response;
