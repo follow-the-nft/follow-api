@@ -2,8 +2,6 @@
 
 let axios = require('axios');
 
-// let app = require('../server').server
-  
 const getOneAsset = (responseAxios) => {
   let formattedResults = responseAxios.data.assets.map((data) => {
     let finalResults = {
@@ -37,11 +35,6 @@ const findByAddresses = async (addresses1, addresses2) => {
   getOneAsset(getMultipleAddressData);
 }
 
-// findByAddress('0x495f947276749ce646f68ac8c248420045cb7b5e')
-
-// findById('20512672236384795134598454803080694359308106914252699625353424791001018400769')
-
-
 const findByCollection = async (asset_owner) => {
   // let getCollectionData = await axios.get(`https://api.opensea.io/api/v1/collections?asset_owner=${asset_owner}&offset=0&limit=20`)
   let getCollectionData = await axios.get(`https://api.opensea.io/api/v1/collections?asset_owner=102384&offset=0&limit=300`)
@@ -49,6 +42,4 @@ const findByCollection = async (asset_owner) => {
   getOneAsset(getCollectionData)
 }
 
-// console.log(axios.get(`https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=3`).then(data => console.log(data.data.assets[0].collection)))
 
-findByCollection('102384')
