@@ -4,7 +4,8 @@
 const express = require('express');
 
 // Import middleware and routes
-const errorHandler = require('./handlers/error-handler');
+const errorHandler = require('./handlers/error');
+const notFoundHandler = require('./handlers/not-found');
 const publicRoutes = require('./routes/public');
 const userRoutes = require('./routes/user');
 
@@ -14,6 +15,7 @@ const app = express();
 // App level middleware
 app.use(express.json());
 app.use(errorHandler);
+app.use(notFoundHandler);
 
 // Proof of life route
 app.get('/', (req, res) => {
