@@ -1,12 +1,12 @@
-'use strict'
+'use strict';
 
 module.exports = function (err, req, res) {
-  const error = err.message ? err.message : err
+  const error = err.message ? err.message : err;
 
   const errorObj = {
     status: 500,
     message: error,
-  }
+  };
 
-  res.status(500).json(errorObj)
-}
+  res.status(500).json(errorObj);
+};
