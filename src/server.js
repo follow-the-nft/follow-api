@@ -7,6 +7,8 @@ const express = require('express');
 const errorHandler = require('./handlers/error-handler');
 const publicRoutes = require('./routes/public');
 const userRoutes = require('./routes/user');
+const handle404 = require('./error-handlers/404')
+const error500Handler = require('./error-handlers/500')
 
 // Prepare the express app
 const app = express();
@@ -23,6 +25,10 @@ app.get('/', (req, res) => {
 // Routes
 app.use(publicRoutes);
 app.use(userRoutes);
+
+// Route Errors
+app.use(handle404);
+app.use(error500Handler);
 
 // Handlers TODO
 
