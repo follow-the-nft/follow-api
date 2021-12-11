@@ -5,13 +5,11 @@ const { server } = require('../server');
 const request = supertest(server);
 
 describe('Given /notFound', () => {
-  
   describe('When GET', () => {
     let response;
     beforeAll( async() => {
       response = await request.get('/notFound');
     });
-
     it('Then returns 404 status', () => {
       expect(response.status).toStrictEqual(404);
     });
