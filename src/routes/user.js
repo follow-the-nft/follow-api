@@ -5,7 +5,6 @@ const userRouter = express.Router();
 
 const { users } = require('../models/index');
 const bearer = require('../middleware/bearer');
-// const { acl } = require('../middleware/acl')
 const basic = require('../middleware/basic');
 
 // GET User - User Reads 
