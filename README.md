@@ -102,12 +102,16 @@ API is free to use on lmited basis. To use the API in a production environment, 
 
 Use API key in the header of request. Example:
 
-```Javascript
-const options = {method: 'GET', headers: {'X-API-KEY': 'api key here'}};
-axios.get('https://api.opensea.io/api/v1/asset/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb/1/', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
+```JavaScript
+publicRouter.get('/nft/:id', async (req, res, next) => {
+  let X_API_KEY = apiKeyHere;
+  try {
+    let response = await axios.get(`https://api.opensea.io/api/v1/asset/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb/1/${X_API_KEY}`);
+    res.status(200).json(response);
+  } catch(err) {
+    console.log(err)
+    } 
+});
 ```
 
 <!-- TODO USAGE EXAMPLES 
