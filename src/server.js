@@ -20,6 +20,10 @@ app.get('/', (req, res) => {
   res.status(200).send('@FollowTheNFT');
 });
 
+app.get('/bad', (req, res, next) => {
+  next("you've messed up");
+});
+
 app.use(publicRoutes);
 app.use(userRoutes);
 
