@@ -4,25 +4,28 @@
 const express = require('express');
 
 // Import middleware and routes
-const errorHandler = require('./handlers/error-handler');
+const errorHandler = require('./handlers/error');
+const notFoundHandler = require('./handlers/not-found');
 const publicRoutes = require('./routes/public');
 const userRoutes = require('./routes/user');
 
-// Prepare the express app
+// Prepare express
 const app = express();
 
-// App level middleware
+// App middleware
 app.use(express.json());
-app.use(errorHandler);
 
-// Proof of life route
+// Routes
 app.get('/', (req, res) => {
   res.status(200).send('@FollowTheNFT');
 });
 
-// Routes
 app.use(publicRoutes);
 app.use(userRoutes);
+
+// Route middleware
+app.use(errorHandler);
+app.use('*', notFoundHandler);
 
 // Handlers TODO
 
