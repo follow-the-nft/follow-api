@@ -18,6 +18,6 @@ module.exports = async (req, res, next) => {
   }
 
   function authError() {
-    next('Invalid Login');
+    next('Invalid Login for Bearer');
   }
 };

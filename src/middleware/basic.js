@@ -1,6 +1,7 @@
 'use strict';
 
-const base64 = require('base64-js');
+// const base64 = require('base64-js');
+const base64 = require('base-64');
 const { users } = require('../models/index');
 
 module.exports = async (req, res, next) => {
@@ -19,6 +20,6 @@ module.exports = async (req, res, next) => {
   }
 
   function authError() {
-    res.status(403).send('Invalid Login');
+    res.status(403).send('Invalid Login in Basic');
   }
 };

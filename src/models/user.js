@@ -2,6 +2,7 @@
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const SECRET = process.env.SECRET || 'soTired';
 
@@ -43,7 +44,8 @@ const userModel = (sequelize, DataTypes) => {
       type: DataTypes.VIRTUAL,
       get() {
         const acl = {
-          user: ['read', 'create', 'update', 'delete'],
+          user: ['read', 'create', 'update'],
+          admin: ['read', 'create', 'update', 'delete'],
         };
         return acl[this.role];
       },
@@ -55,7 +57,7 @@ const userModel = (sequelize, DataTypes) => {
     user.password = hashedPass;
   });
 
-  model.authenticateBasic = async (username, password) => {
+  model.authenticateBasic = async function (username, password) {
     const user = await this.findOne({ where: { username } });
     const valid = await bcrypt.compare(password, user.password);
     if (valid) {
@@ -64,13 +66,11 @@ const userModel = (sequelize, DataTypes) => {
     throw new Error('Invalid User');
   };
 
-  model.authenticateToken = async (token) => {
+  model.authenticateToken = async function (token) {
     try {
       const parsedToken = jwt.verify(token, SECRET);
-      const user = this.findOne({ where: { username: parsedToken.username } });
-      if (user) {
-        return user;
-      }
+      const user = await this.findOne({ where: { username: parsedToken.username } });
+      if (user) return user;
       throw new Error('User Not Found');
     } catch (e) {
       throw new Error(e.message);
