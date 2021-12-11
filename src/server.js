@@ -8,8 +8,6 @@ const errorHandler = require('./handlers/error');
 const notFoundHandler = require('./handlers/not-found');
 const publicRoutes = require('./routes/public');
 const userRoutes = require('./routes/user');
-const handle404 = require('./error-handlers/404')
-const error500Handler = require('./error-handlers/500')
 
 // Prepare express
 const app = express();

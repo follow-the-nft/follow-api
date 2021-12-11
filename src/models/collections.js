@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 class Collection {
   constructor(model) {
@@ -23,12 +23,12 @@ class Collection {
 
     try {
       if (id) {
-        options['where'] = { id }
-        record = await this.model.findOne(options)
+        options['where'] = { id };
+        record = await this.model.findOne(options);
       } else {
-        record = await this.model.findAll(options)
+        record = await this.model.findAll(options);
       }
-      return record
+      return record;
     } catch (err) {
       console.error(`Error reading data for model : ${this.model.name}`);
       return err;
@@ -53,7 +53,7 @@ class Collection {
     try {
       if (!id) throw new Error(`No record ID provided for model: ${this.model}`);
 
-      let record = await this.model.destroy({ where: { id }})
+      let record = await this.model.destroy({ where: { id }});
       return record;
     } catch (err) {
       console.error(`Error deleting data for model : ${this.model.name}`);
