@@ -94,6 +94,34 @@ npm run dev
 npm run test
 ```
 
+## Optional for using in Production Environment
+
+Request API Key from [Opensea](https://docs.opensea.io/reference/request-an-api-key)
+
+API is free to use on lmited basis. To use the API in a production environment, request key from URL above. Enter email address, project name, project description, and a link to the project website. Approval takes 1-2 days.
+
+Use API key in the header of request.
+
+```JavaScript
+INSTALLATION
+npm install axios --save
+
+REQUEST
+import axios from "axios";
+
+const options = {
+  method: 'GET',
+  url: 'https://api.opensea.io/api/v1/asset/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb/1/',
+  headers: {'X-API-KEY': 'apiKeyHere'}
+};
+
+axios.request(options).then(function (response) {
+  console.log(response.data);
+}).catch(function (error) {
+  console.error(error);
+});
+```
+
 <!-- TODO USAGE EXAMPLES 
 ## Usage
 
