@@ -50,6 +50,7 @@ describe('Given GET', () => {
     describe('Valid request', () => {
       beforeAll(() => {
         nock('https://api.opensea.io')
+          .persist()
           .get(`/api/v1/assets?owner=${address00}&order_direction=desc&offset=0`)
           .reply(200, nockResponse.assets); 
       });
@@ -65,6 +66,7 @@ describe('Given GET', () => {
       beforeAll(() => {
         const errorResponse = { message: 'server error'};
         nock('https://api.opensea.io')
+          .persist()
           .get('/api/v1/assets?owner=iDoNotExist&order_direction=desc&offset=0')
           .reply(404, errorResponse); 
       });
@@ -80,6 +82,7 @@ describe('Given GET', () => {
     describe('Valid request', () => {
       beforeAll(() => {
         nock('https://api.opensea.io')
+          .persist()
           .get(`/api/v1/assets?order_direction=desc&offset=0&asset_contract_addresses=${address00}&asset_contract_addresses=${address01}`)
           .reply(200, nockResponse.addresses);
       });
@@ -96,6 +99,7 @@ describe('Given GET', () => {
     describe('Valid request', () => {
       beforeAll(() => {
         nock('https://api.opensea.io')
+          .persist()
           .get(`/api/v1/collection/${slug}`)
           .reply(200, nockResponse.collection);
       });
