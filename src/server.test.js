@@ -1,8 +1,8 @@
 'use strict';
 
 const supertest = require('supertest');
-const server = require('./server');
-const request = supertest(server.server);
+const  { server } = require('./server');
+const request = supertest(server);
 
 describe('Given /', () => {
   describe('When GET', () => {
