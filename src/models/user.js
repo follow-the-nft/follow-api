@@ -25,10 +25,12 @@ const userModel = (sequelize, DataTypes) => {
     follows: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       required: false,
+      defaultValue: [],
     },
     likes: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       required: false,
+      defaultValue: [],
     },
     token: {
       type: DataTypes.VIRTUAL,

@@ -11,7 +11,7 @@ const OPENSEA_API_URL = process.env.OPENSEA_API_URL || 'https://api.opensea.io/a
 // Get NFT by NFT token address
 publicRouter.get('/nft/:id', async (req, res, next) => {
   try {
-    if(!/^[0-9]{77}$/g.test(req.params.id)) {
+    if(!req.params.id) {
       throw new Error("Please enter an id .e.g '/nft/20512672236384795134598454803080694359308106914252699625353424791001018400769'");
     }
     let response = await fetch(`${OPENSEA_API_URL}/assets?order_direction=desc&offset=0&token_ids=${req.params.id}`);
