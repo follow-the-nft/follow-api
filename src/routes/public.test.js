@@ -17,17 +17,13 @@ let slug = 'kumo-resident-y9rbt6bibp';
 describe('Given GET', () => {
   describe("When '/nft/:id", () => {
     describe('Valid request', () => {
-      it.only('Then should return 200 response', async () => {
+      it('Then should return 200 response', async () => {
         nock('https://api.opensea.io')
           .persist()
           .get(`/api/v1/assets?order_direction=desc&offset=0&token_ids=${nftId}`)
           .reply(200, nockResponse.asset);
 
-        console.log(nock.activeMocks());
-        console.log(nock.isActive());
         let response = await mockRequest.get(`/nft/${nftId}`);
-        console.log(nock.activeMocks());
-        console.log(nock.isActive());
         expect(response.status).toBe(200);
         expect(response.body).toEqual(nockResponse.asset);
       });

@@ -6,7 +6,7 @@ require('dotenv').config();
 const express = require('express');
 const publicRouter = express.Router();
 
-const OPENSEA_API_URL = process.env.OPENSEA_API_URL || 'https://api.opensea.io/api/v1/';
+const OPENSEA_API_URL = process.env.OPENSEA_API_URL || 'https://api.opensea.io/api/v1';
 
 // Get NFT by NFT token address
 publicRouter.get('/nft/:id', async (req, res, next) => {
