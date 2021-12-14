@@ -30,16 +30,16 @@ describe('Given GET', () => {
     });
 
     describe('Invalid request', () => {
-      let errorResponse;
       beforeAll(() => {
-        errorResponse = { message: 'server error'};
+        const errorResponse = { message: 'server error'};
         nock('https://api.opensea.io')
-          .get('/api/v1/assets?order_direction=desc&offset=0&token_ids=iDoNotExist')
-          .reply(404, errorResponse);
+          .persist()
+          .get(`/api/v1/assets?order_direction=desc&offset=0&token_ids=iDoNotExist`)
+          .reply(404, errorResponse); 
       });
 
       it('Then should return 500 response', async () => {
-        let response = await mockRequest.get('/nft/iDoNotExist');
+        let response = await mockRequest.get('/address/iDoNotExist');
         expect(response.status).toStrictEqual(500);
       });
     });
