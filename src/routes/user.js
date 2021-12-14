@@ -29,8 +29,10 @@ userRouter.get('/likes', bearer, async (req, res, next) => {
   try {
     let user = await users.findOne({ where: {username: req.user.dataValues.username}});
     let likeResponse = [];
+    // https://api.opensea.io/api/v1/asset/0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb/2/
     for(const like of user.likes) {
-      let response = await fetch(`${OPENSEA_API_URL}/assets?order_direction=desc&offset=0&token_ids=${like}`);
+      let likeValues = like.split(',');
+      let response = await fetch(`${OPENSEA_API_URL}/asset/${likeValues[0]}/${likeValues[1]}`);
       const json = await response.json();
       likeResponse.push(json);
     }
@@ -41,21 +43,23 @@ userRouter.get('/likes', bearer, async (req, res, next) => {
 });
 
 // POST: Add to users liked NFTs ('likes/:id')
-userRouter.post('/likes/:id', bearer, async (req, res, next) => {
+userRouter.post('/likes/:address/:id', bearer, async (req, res, next) => {
   try {
     if(!req.params.id && typeof req.params.id !== 'string') { throw new Error('Please provide a valid ID');}
 
-    // Remove & Append to existing array https://stackoverflow.com/a/44365347
+    // TODO cleanup and assign to variable for reuse
+    // let index = `${req.params.address},${req.params.id}`
     let userQuery = await users.findOne({ where: {username: req.user.dataValues.username}});
     let userRecord;
-    if(userQuery.likes.includes(req.params.id)) {
+    console.log(userQuery.likes);
+    if(userQuery.likes.includes(`${req.params.address},${req.params.id}`)) {
       userRecord = await users.update(
-        {'likes': db.fn('array_remove', db.col('likes'), req.params.id)},
+        {'likes': db.fn('array_remove', db.col('likes'), `${req.params.address},${req.params.id}`)},
         {'where': {'username': req.user.dataValues.username}}
       );
     } else {
       userRecord = await users.update(
-        {'likes': db.fn('array_append', db.col('likes'), req.params.id)},
+        {'likes': db.fn('array_append', db.col('likes'), `${req.params.address},${req.params.id}`)},
         {'where': {'username': req.user.dataValues.username}}
       );
     }
@@ -70,6 +74,7 @@ userRouter.get('/follows', bearer, async (req, res, next) => {
   try {
     let user = await users.findOne({ where: {username: req.user.dataValues.username}});
     let followResponse = [];
+    // Do we want to want the follow response to be an array of asset objects?
     for(const address of user.follows) {
       let response = await fetch(`${OPENSEA_API_URL}/assets?owner=${address}&order_direction=desc&offset=0`);
       const json = await response.json();
