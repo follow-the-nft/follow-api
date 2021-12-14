@@ -205,6 +205,7 @@ Project Link: [https://github.com/follow-the-nft/follow-the-nft-api](https://git
 * [MetaMask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn)
 * [Crypto Art Evolution](https://youtu.be/2D6iqZLKhLY)
 * [How to create a peer to peer NFT marketplace](https://docs.tatum.io/tutorials/how-to-create-a-peer-to-peer-nft-marketplace)
+* [Array Values in Sequelize](https://stackoverflow.com/a/44365347)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
