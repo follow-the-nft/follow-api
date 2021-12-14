@@ -9,17 +9,25 @@ const publicRouter = express.Router();
 const OPENSEA_API_URL = process.env.OPENSEA_API_URL || 'https://api.opensea.io/api/v1/';
 
 // Get NFT by NFT token address
-publicRouter.get('/nft/:id', async (req, res, next) => {
-  try {
-    if(!/^[0-9]{77}$/g.test(req.params.id)) {
-      throw new Error("Please enter an id .e.g '/nft/20512672236384795134598454803080694359308106914252699625353424791001018400769'");
+
+class Router {
+  
+}
+
+const getId = async (id) => {
+
+  publicRouter.get('/nft/:id', async (req, res, next) => {
+    try {
+      if(!/^[0-9]{77}$/g.test(req.params.id)) {
+        throw new Error("Please enter an id .e.g '/nft/20512672236384795134598454803080694359308106914252699625353424791001018400769'");
+      }
+      let response = await axios.get(`${OPENSEA_API_URL}/assets?order_direction=desc&offset=0&token_ids=${req.params.id}`);
+      res.status(200).json(response.data.assets);
+    } catch(err) {
+      next(err);
     }
-    let response = await axios.get(`${OPENSEA_API_URL}/assets?order_direction=desc&offset=0&token_ids=${req.params.id}`);
-    res.status(200).json(response.data.assets);
-  } catch(err) {
-    next(err);
-  }
-});
+  });
+}
 
 // Get NFTs owned by wallet address
 publicRouter.get('/address/:address', async (req, res, next) => {

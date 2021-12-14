@@ -36,4 +36,26 @@ userRouter.post('/register', async (req, res, next) => {
   }
 });
 
+userRouter.patch('/nft/likethis/:id', async (req, res, next) => {
+  try {
+    if(!req.params.id) return;
+
+    req.body['likes'] = [req.params.id];
+
+    let record = await users.findOne({ where: { username: req.body.username}})
+
+    let userRecord = await record.update(req.body);
+    console.log('userRecord:', userRecord);
+    
+    const output = {
+      user: userRecord,
+      userToken: userRecord.token,
+    };
+
+    res.status(201).json(output);
+  } catch (err) {
+    next(err.message);
+  }
+});
+
 module.exports = userRouter;
