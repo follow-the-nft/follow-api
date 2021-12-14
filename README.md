@@ -59,8 +59,7 @@ An Application secured by Auth that allows the users to follow and/or like their
 <!-- TODO -->
 ## UML
 
-<img src="img/mid-term-1.png" width="40%" height="auto">
-<img src="img/mid-term-2.png" width="40%" height="auto">
+<img src="img/UML-follow-the-nft.png" width="40%" height="auto">
 
 ### Built With
 
