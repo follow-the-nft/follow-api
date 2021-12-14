@@ -26,7 +26,7 @@ userRouter.post('/register', async (req, res, next) => {
 // POST: Add to likes
 userRouter.post('/nft/like/:id', bearer, async (req, res, next) => {
   try {
-    if(!req.params.id) { throw new Error('Please provide a valid ID');}
+    if(!req.params.id && typeof req.params.id !== 'string') { throw new Error('Please provide a valid ID');}
 
     // Remove & Append to existing array https://stackoverflow.com/a/44365347
     let userQuery = await users.findOne({ where: {username: req.body.username}});
@@ -55,7 +55,7 @@ userRouter.post('/nft/like/:id', bearer, async (req, res, next) => {
 // POST: Add to follows
 userRouter.post('/address/follow/:address', bearer, async (req, res, next) => {
   try {
-    if(!req.params.address && typeof req.params.address === 'string') { throw new Error('Please provide a valid address');}
+    if(!req.params.address && typeof req.params.address !== 'string') { throw new Error('Please provide a valid address');}
 
     let userQuery = await users.findOne({ where: {username: req.body.username}});
     let userRecord;
