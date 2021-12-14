@@ -28,17 +28,17 @@ userRouter.post('/register', async (req, res, next) => {
 userRouter.get('/likes', bearer, async (req, res, next) => {
   try {
     let user = await users.findOne({ where: {username: req.user.dataValues.username}});
-    let likeResponse = []
+    let likeResponse = [];
     for(const like of user.likes) {
       let response = await fetch(`${OPENSEA_API_URL}/assets?order_direction=desc&offset=0&token_ids=${like}`);
       const json = await response.json();
-      likeResponse.push(json)
+      likeResponse.push(json);
     }
-    res.status(200).json(likeResponse)
+    res.status(200).json(likeResponse);
   } catch (err) {
-    next(err)
+    next(err);
   }
-})
+});
 
 // POST: Add to users liked NFTs ('likes/:id')
 userRouter.post('/likes/:id', bearer, async (req, res, next) => {
@@ -69,17 +69,17 @@ userRouter.post('/likes/:id', bearer, async (req, res, next) => {
 userRouter.get('/follows', bearer, async (req, res, next) => {
   try {
     let user = await users.findOne({ where: {username: req.user.dataValues.username}});
-    let followResponse = []
+    let followResponse = [];
     for(const address of user.follows) {
       let response = await fetch(`${OPENSEA_API_URL}/assets?owner=${address}&order_direction=desc&offset=0`);
       const json = await response.json();
-      followResponse.push(json)
+      followResponse.push(json);
     }
-    res.status(200).json(followResponse)
+    res.status(200).json(followResponse);
   } catch (err) {
-    next(err)
+    next(err);
   }
-})
+});
 
 // POST: Add to users follows addresses ('follow')
 userRouter.post('/follows/:address', bearer, async (req, res, next) => {
