@@ -22,6 +22,7 @@ describe('Given GET', () => {
           .get(`/api/v1/assets?order_direction=desc&offset=0&token_ids=${nftId}`)
           .reply(200, nockResponse.asset);
 
+        console.log(nock.activeMocks())
         let response = await mockRequest.get(`/nft/${nftId}`);
         expect(response.status).toBe(200);
         expect(response.body).toEqual(nockResponse.asset);
