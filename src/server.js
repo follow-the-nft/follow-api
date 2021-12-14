@@ -2,6 +2,8 @@
 
 // Import express
 const express = require('express');
+// Import cors
+const cors = require('cors');
 
 // Import middleware and routes
 const errorHandler = require('./handlers/error');
@@ -13,6 +15,7 @@ const userRoutes = require('./routes/user');
 const app = express();
 
 // App middleware
+app.use(cors());
 app.use(express.json());
 
 // Routes
