@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "test": "jest --coverage",
-    "start": "NODE_ENV=production nodemon index.js",
+    "start": "NODE_ENV=production node index.js",
     "dev": "NODE_ENV=development nodemon index.js",
     "route": "node ./src/routes/apiRoutes.js"
   },
