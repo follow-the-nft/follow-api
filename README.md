@@ -68,6 +68,7 @@
 * [Dotenv](https://www.npmjs.com/package/dotenv)
 * [ESLint](https://eslint.org/)
 * [Express](https://expressjs.com/)
+* [Heroku](https://heroku.com)
 * [Jest](https://jestjs.io/)
 * [JWT](https://jwt.io/)
 * [Node Fetch](https://www.npmjs.com/package/node-fetch)
@@ -135,9 +136,11 @@ axios.request(options).then(function (response) {
 <!-- TODO USAGE EXAMPLES  -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Our application is a backend application. We recommend using Postman to hit our routes.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+### Heroku Deployment
+
+[Heroku Deployment](https://follow-the-nft-prod.herokuapp.com/)
 
 ## Public Routes
 
