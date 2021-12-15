@@ -6,7 +6,7 @@ const userRouter = express.Router();
 
 const { users, db } = require('../models/index');
 const bearer = require('../middleware/bearer');
-const basic = require('../middleware/basic')
+const basic = require('../middleware/basic');
 
 const OPENSEA_API_URL = process.env.OPENSEA_API_URL || 'https://api.opensea.io/api/v1';
 
@@ -30,12 +30,12 @@ userRouter.post('/sign-in', basic, async (req, res, next) => {
       username: req.user.username,
       userToken: req.user.token,
       id: req.user.id
-    }
-    res.status(200).json(user)
+    };
+    res.status(200).json(user);
   } catch (error) {
-    next(error.message)
+    next(error.message);
   }
-})
+});
 
 
 // GET: Users liked NFTs ('likes')
@@ -61,7 +61,7 @@ userRouter.post('/likes/:address/:id', bearer, async (req, res, next) => {
   try {
     if(!req.params.id && typeof req.params.id !== 'string') { throw new Error('Please provide a valid ID');}
 
-    // TODO cleanup and assign to variable for reuse
+    // TODO: cleanup and assign to variable for reuse
     // let index = `${req.params.address},${req.params.id}`
     let userQuery = await users.findOne({ where: {username: req.user.dataValues.username}});
     let userRecord;
