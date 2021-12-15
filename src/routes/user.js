@@ -6,6 +6,7 @@ const userRouter = express.Router();
 
 const { users, db } = require('../models/index');
 const bearer = require('../middleware/bearer');
+const basic = require('../middleware/basic')
 
 const OPENSEA_API_URL = process.env.OPENSEA_API_URL || 'https://api.opensea.io/api/v1';
 
@@ -14,14 +15,27 @@ userRouter.post('/register', async (req, res, next) => {
   try {
     let userRecord = await users.create(req.body);
     const output = {
-      user: userRecord,
-      userToken: userRecord.token,
+      user: userRecord
     };
     res.status(201).json(output);
   } catch (err) {
     next(err.message);
   }
 });
+
+// POST: Sign-in
+userRouter.post('/sign-in', basic, async (req, res, next) => {
+  try {
+    const user = {
+      username: req.user.username,
+      userToken: req.user.token,
+      id: req.user.id
+    }
+    res.status(200).json(user)
+  } catch (error) {
+    next(error.message)
+  }
+})
 
 
 // GET: Users liked NFTs ('likes')
