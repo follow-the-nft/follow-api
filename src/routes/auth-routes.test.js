@@ -108,4 +108,4 @@ describe('Given /newLikes', () => {
       expect(response.body.token_id).toStrictEqual('42');
     });
   });
-})
+});
