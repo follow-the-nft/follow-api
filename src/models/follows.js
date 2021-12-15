@@ -8,9 +8,9 @@ const followModel = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       required: true,
     },
-  })
+  });
 
-  return model
-}
+  return model;
+};
 
-module.exports = followModel
+module.exports = followModel;

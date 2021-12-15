@@ -11,12 +11,12 @@ const bearer = require('../middleware/bearer');
 likeRouter.get('/newLikes', bearer, async (req, res, next) => {
   try {
     let user = await users.findOne({ where: {username: req.user.dataValues.username}});
-    let allLikes = await likes.findAll({ where: { user_id: user.dataValues.id }})
-    res.status(200).json(allLikes)
+    let allLikes = await likes.findAll({ where: { user_id: user.dataValues.id }});
+    res.status(200).json(allLikes);
   } catch(e) {
-    console.error(e.message)
+    console.error(e.message);
   } finally {
-    next()
+    next();
   }
 });
 
@@ -33,22 +33,22 @@ likeRouter.post('/newlikes/:address/:id', bearer, async (req, res, next) => {
       }
     });
 
-    let result 
+    let result; 
     if(!record.length) {
-      req.like = {}
-      req.like.user_id = user.id
-      req.like.contract_address = req.params.address
-      req.like.token_id = req.params.id
-      result = await likes.create(req.like)
+      req.like = {};
+      req.like.user_id = user.id;
+      req.like.contract_address = req.params.address;
+      req.like.token_id = req.params.id;
+      result = await likes.create(req.like);
     } else {
-      result = record[0]
+      result = record[0];
     }
     
-    res.status(200).json(result)
+    res.status(200).json(result);
   } catch(e) {
-    console.error(e.message)
+    console.error(e.message);
   } finally {
-    next()
+    next();
   }
 });
 
@@ -65,12 +65,12 @@ likeRouter.delete('/newlikes/:address/:id', bearer, async (req, res, next) => {
       }
     });
     
-    let result = likes.destroy({ where: {id: record[0].id}})
-    res.status(204).json(result)
+    let result = likes.destroy({ where: {id: record[0].id}});
+    res.status(204).json(result);
   } catch(e) {
-    console.error(e.message)
+    console.error(e.message);
   } finally {
-    next()
+    next();
   }
 });
 

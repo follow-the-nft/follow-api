@@ -34,7 +34,7 @@ describe('Given GET', () => {
         const errorResponse = { message: 'server error'};
         nock('https://api.opensea.io')
           .persist()
-          .get(`/api/v1/assets?order_direction=desc&offset=0&token_ids=iDoNotExist`)
+          .get('/api/v1/assets?order_direction=desc&offset=0&token_ids=iDoNotExist')
           .reply(404, errorResponse); 
       });
 

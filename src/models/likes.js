@@ -12,9 +12,9 @@ const likeModel = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       required: true
     }
-  })
+  });
 
-  return model
-}
+  return model;
+};
 
-module.exports = likeModel
+module.exports = likeModel;

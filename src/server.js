@@ -10,7 +10,7 @@ const errorHandler = require('./handlers/error');
 const notFoundHandler = require('./handlers/not-found');
 const publicRoutes = require('./routes/public');
 const likeRoutes = require('./routes/likes');
-const followRoutes = require('./routes/follows')
+const followRoutes = require('./routes/follows');
 
 // Prepare express
 const app = express();

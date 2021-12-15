@@ -11,12 +11,12 @@ const bearer = require('../middleware/bearer');
 followRouter.get('/newFollows', bearer, async (req, res, next) => {
   try {
     let user = await users.findOne({ where: {username: req.user.dataValues.username}});
-    let allFollows = await follows.findAll({ where: { user_id: user.dataValues.id }})
-    res.status(200).json(allFollows)
+    let allFollows = await follows.findAll({ where: { user_id: user.dataValues.id }});
+    res.status(200).json(allFollows);
   } catch(e) {
-    console.error(e.message)
+    console.error(e.message);
   } finally {
-    next()
+    next();
   }
 });
 
@@ -32,21 +32,21 @@ followRouter.post('/newFollows/:address', bearer, async (req, res, next) => {
       }
     });
 
-    let result 
+    let result; 
     if(!record.length) {
-      req.follow = {}
-      req.follow.user_id = user.id
-      req.follow.contract_address = req.params.address
-      result = await follows.create(req.follow)
+      req.follow = {};
+      req.follow.user_id = user.id;
+      req.follow.contract_address = req.params.address;
+      result = await follows.create(req.follow);
     } else {
-      result = record[0]
+      result = record[0];
     }
     
-    res.status(200).json(result)
+    res.status(200).json(result);
   } catch(e) {
-    console.error(e.message)
+    console.error(e.message);
   } finally {
-    next()
+    next();
   }
 });
 
@@ -62,12 +62,12 @@ followRouter.delete('/newFollows/:address/', bearer, async (req, res, next) => {
       }
     });
     
-    let result = follows.destroy({ where: {id: record[0].id}})
-    res.status(204).json(result)
+    let result = follows.destroy({ where: {id: record[0].id}});
+    res.status(204).json(result);
   } catch(e) {
-    console.error(e.message)
+    console.error(e.message);
   } finally {
-    next()
+    next();
   }
 });
 
