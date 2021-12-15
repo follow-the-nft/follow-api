@@ -35,9 +35,6 @@
 
 # @Follow The NFT
 
-An Application secured by Auth that allows the users to follow and/or like their favorite Non-Fungible Tokens (NFT).
-
-
 <!-- TABLE OF CONTENTS -->
 <div>
   <summary>Table of Contents</summary>
@@ -56,11 +53,12 @@ An Application secured by Auth that allows the users to follow and/or like their
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+>An Application secured by Auth that allows the users to search through NFT's using OpenSea API, and save their favorite NFT or artist.
+
 <!-- TODO -->
 ## UML
 
-<img src="img/mid-term-1.png" width="40%" height="auto">
-<img src="img/mid-term-2.png" width="40%" height="auto">
+<img src="img/UML-Follow-NFT2.png" width="40%" height="auto">
 
 ### Built With
 
@@ -68,7 +66,16 @@ An Application secured by Auth that allows the users to follow and/or like their
 * [Express](https://expressjs.com/)
 * [Opensea API](https://docs.opensea.io/reference/api-overview)
 * [REST API](https://restfulapi.net/)
-<!-- * [NodeJS Events](https://reactjs.org/) -->
+* [Cors](https://www.npmjs.com/package/cors)
+* [Node Fetch](https://www.npmjs.com/package/node-fetch)
+* [base-64](https://www.npmjs.com/package/base-64)
+* [dotenv](https://www.npmjs.com/package/dotenv)
+* [Sequelize](https://sequelize.org/)
+* [JWT](https://jwt.io/)
+* [BCrypt](https://www.npmjs.com/package/bcrypt)
+* [Nock](https://www.npmjs.com/package/nock)
+* [SuperTest](https://www.npmjs.com/package/supertest)
+
 
 ## Getting Started
 
