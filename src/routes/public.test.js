@@ -8,8 +8,8 @@ const mockRequest = supertest(server);
 const nockResponse = require('./public.testData.json');
 
 
-let nftId = '20512672236384795134598454803080694359308106914252699625353424791001018400769';
-let address00 = '0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270';
+let nftId = '97341190603561703640736312895230350583576422457915048181886020245224333246514';
+let address00 = '0x2953399124f0cbb46d2cbacd8a89cf0599974963';
 let address01 = '0xc352b534e8b987e036a93539fd6897f53488e56a';
 let slug = 'kumo-resident-y9rbt6bibp';
 
@@ -20,10 +20,10 @@ describe('Given GET', () => {
       it('Then should return 200 response', async () => {
         nock('https://api.opensea.io')
           .persist()
-          .get(`/api/v1/assets?order_direction=desc&offset=0&token_ids=${nftId}`)
+          .get(`/api/v1/asset/${address00}/${nftId}`)
           .reply(200, nockResponse.asset);
 
-        let response = await mockRequest.get(`/nft/${nftId}`);
+        let response = await mockRequest.get(`/nft/${address00}/${nftId}`);
         expect(response.status).toBe(200);
         expect(response.body).toEqual(nockResponse.asset);
       });
