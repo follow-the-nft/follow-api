@@ -140,7 +140,7 @@ Our application is a backend application. We recommend using Postman to hit our 
 
 ### Heroku Deployment
 
-[Heroku Deployment](https://follow-the-nft-prod.herokuapp.com/)
+[Heroku Deployment](https://follow-the-nft.herokuapp.com/)
 
 ## Public Routes
 
@@ -188,7 +188,10 @@ ex.
   "password": "testPassword",
 }
 
-Optional adding "role": "user"
+Optional adding: 
+  "role": "user"
+  or 
+  "role": "admin"
 
 - user has read, write, and update permissions
 - admin has read, write, update, and delete permissions
