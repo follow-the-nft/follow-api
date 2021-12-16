@@ -3,10 +3,8 @@
 const express = require('express');
 const authRouter = express.Router();
 
-const { users } = require('../models/modelsIndex.js');
-const basicAuth = require('../middleware/basic.js');
-const bearerAuth = require('../middleware/bearer');
-const permissions = require('../middleware/acl.js');
+const { users } = require('../models/index');
+const basicAuth = require('../middleware/basic');
 
 authRouter.post('/register', async (req, res, next) => {
   try {
@@ -20,22 +18,11 @@ authRouter.post('/register', async (req, res, next) => {
   }
 });
 
-authRouter.post('/signin', basicAuth, (req, res) => {
+authRouter.post('/sign-in', basicAuth, (req, res) => {
   const user = {
     user: req.user,
-    token: req.user.token,
   };
   res.status(200).send(user);
-});
-
-authRouter.get('/users', bearerAuth, permissions('read'), async (req, res) => {
-  const userRecords = await users.findAll({});
-  const list = userRecords.map((user) => user.username);
-  res.status(200).json(list);
-});
-
-authRouter.get('/secret', bearerAuth, async (req, res) => {
-  res.status(200).send('Welcome to the secret area');
 });
 
 module.exports = authRouter;
