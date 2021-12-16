@@ -58,24 +58,28 @@
 <!-- TODO -->
 ## UML
 
-<img src="img/UML-Follow-NFT2.png" width="40%" height="auto">
+<img src="img/UML-Follow-NFT2.png" width="80%" height="auto">
 
 ### Built With
 
-* [NodeJS](https://nodejs.org/en/)
-* [Express](https://expressjs.com/)
-* [Opensea API](https://docs.opensea.io/reference/api-overview)
-* [REST API](https://restfulapi.net/)
-* [Cors](https://www.npmjs.com/package/cors)
-* [Node Fetch](https://www.npmjs.com/package/node-fetch)
-* [base-64](https://www.npmjs.com/package/base-64)
-* [dotenv](https://www.npmjs.com/package/dotenv)
-* [Sequelize](https://sequelize.org/)
-* [JWT](https://jwt.io/)
+* [Base-64](https://www.npmjs.com/package/base-64)
 * [BCrypt](https://www.npmjs.com/package/bcrypt)
-* [Nock](https://www.npmjs.com/package/nock)
+* [Cors](https://www.npmjs.com/package/cors)
+* [Dotenv](https://www.npmjs.com/package/dotenv)
+* [ESLint](https://eslint.org/)
+* [Express](https://expressjs.com/)
+* [Heroku](https://heroku.com)
+* [Jest](https://jestjs.io/)
+* [JWT](https://jwt.io/)
+* [Node Fetch](https://www.npmjs.com/package/node-fetch)
+* [NodeJS](https://nodejs.org/en/)
+* [OpenSea API](https://docs.opensea.io/reference/api-overview)
+* [PG](https://www.npmjs.com/package/pg)
+* [REST API](https://restfulapi.net/)
+* [Sequelize](https://sequelize.org/)
+* [SQLite3](https://www.sqlite.org/)
 * [SuperTest](https://www.npmjs.com/package/supertest)
-
+* [Nock](https://www.npmjs.com/package/nock)
 
 ## Getting Started
 
@@ -129,14 +133,96 @@ axios.request(options).then(function (response) {
 });
 ```
 
-<!-- TODO USAGE EXAMPLES 
+<!-- TODO USAGE EXAMPLES  -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Our application is a backend application. We recommend using Postman to hit our routes.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+### Heroku Deployment
 
--->
+[Heroku Deployment](https://follow-the-nft.herokuapp.com/)
+
+## Public Routes
+
+### Get: NFT by Token and Address
+
+```
+http://localhost:3001/<address>/<token_id>
+
+This will return back a NFT 
+```
+
+### Get: NFT by Address
+
+```
+http://localhost:3001/address/<address>
+
+Will return back wallet address 
+
+http://localhost:3001/addresses/<addresses>
+
+Will return back wallet addresses by how many address you add
+```
+
+### Get: Collection by Slug
+
+```
+http://localhost:3001/collection/<slug>
+
+Will return back a collection based on the slug passed in
+```
+
+## Auth Routes
+
+### Post: Register your account
+
+```
+http://localhost:3001/register
+
+Pass in your desired username, password
+
+ex.
+
+{
+  "username": "testUserName",
+  "password": "testPassword",
+}
+
+### Post: NFT you like
+
+```
+http://localhost:3001/likes/<address>/<token_id>
+
+This will save your liked NFT to the database in an array format
+
+If you post the same `address` and `token_id`, it will remove the liked NFT from the database
+```
+
+### Get: Your NFT you have liked
+
+```
+http://localhost:3001/likes
+
+This will return back your NFT assets in an array format
+```
+
+### Post: NFT you want to follow
+
+```
+http://localhost:3001/follows/<address>
+
+This will save the wallet of the address to the database in an array format
+
+If you post the same `address`, it will remove the followed NFT from the database
+```
+
+### Get: Your NFT you have followed
+
+```
+http://localhost:3001/follows
+
+This will return back your NFT wallet in an array format
+```
 
 <!-- ROADMAP 
 ## Roadmap
@@ -198,10 +284,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Heather Bisgaard - [@GitHub_handle](https://github.com/vbchomp) - vbchomp@gmail.com  
-Charlie Fadness - [@GitHub_handle](https://github.com/fadnesscharlie) - fadness.charlie@hotmail.com  
-Tom McGuire - [@GitHub_handle](https://github.com/MuckT) - mcgtom10@gmail.com  
-Jeremy Brazell - [@GitHub_handle](https://github.com/jeremywbrazell) - jwbrazell@gmail.com  
+Heather Bisgaard - [@vbchomp](https://github.com/vbchomp) - vbchomp@gmail.com  
+Charlie Fadness - [@fadnesscharlie](https://github.com/fadnesscharlie) - fadness.charlie@hotmail.com  
+Tom McGuire - [@MuckT](https://github.com/MuckT) - mcgtom10@gmail.com  
+Jeremy Brazell - [@Jeremywbrazell](https://github.com/jeremywbrazell) - jwbrazell@gmail.com  
 
 Project Link: [https://github.com/follow-the-nft/follow-the-nft-api](https://github.com/follow-the-nft/follow-the-nft-api)
 
