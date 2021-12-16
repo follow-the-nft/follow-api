@@ -22,16 +22,17 @@ const userModel = (sequelize, DataTypes) => {
       required: true,
       defaultValue: 'user',
     },
-    follows: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      required: false,
-      defaultValue: [],
-    },
-    likes: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      required: false,
-      defaultValue: [],
-    },
+    // Columns with Array datatypes don't work in sqlite3
+    // follows: {
+    //   type: DataTypes.ARRAY(DataTypes.STRING),
+    //   required: false,
+    //   defaultValue: [],
+    // },
+    // likes: {
+    //   type: DataTypes.ARRAY(DataTypes.STRING),
+    //   required: false,
+    //   defaultValue: [],
+    // },
     token: {
       type: DataTypes.VIRTUAL,
       get() {
