@@ -179,7 +179,7 @@ Will return back a collection based on the slug passed in
 ```
 http://localhost:3001/register
 
-Pass in your desired `username`, `password`, and optional `role` as `user` or `admin` in a json format.
+Pass in your desired username, password
 
 ex.
 
@@ -187,15 +187,6 @@ ex.
   "username": "testUserName",
   "password": "testPassword",
 }
-
-Optional adding: 
-  "role": "user"
-  or 
-  "role": "admin"
-
-- user has read, write, and update permissions
-- admin has read, write, update, and delete permissions
-```
 
 ### Post: NFT you like
 
