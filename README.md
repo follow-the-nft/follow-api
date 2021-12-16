@@ -24,14 +24,7 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-<!-- PROJECT LOGO -->
 <br />
-<!-- TODO ADD LOGO 
-<div align="center">
-  <a href="https://github.com/follow-the-nft/follow-the-nft-api">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
--->
 
 # @Follow The NFT
 
@@ -188,6 +181,8 @@ ex.
   "password": "testPassword",
 }
 
+```
+
 ### Post: NFT you like
 
 ```
@@ -223,15 +218,6 @@ http://localhost:3001/follows
 
 This will return back your NFT wallet in an array format
 ```
-
-<!-- ROADMAP 
-## Roadmap
-
-- [] Feature 1
-- [] Feature 2
-- [] Feature 3
-    - [] Nested Feature
--->
 
 See the [open issues](https://github.com/follow-the-nft/follow-the-nft-api/issues) for a full list of proposed features (and known issues).
 
