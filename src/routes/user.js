@@ -65,7 +65,6 @@ userRouter.post('/likes/:address/:id', bearer, async (req, res, next) => {
     // let index = `${req.params.address},${req.params.id}`
     let userQuery = await users.findOne({ where: {username: req.user.dataValues.username}});
     let userRecord;
-    console.log(userQuery.likes);
     if(userQuery.likes.includes(`${req.params.address},${req.params.id}`)) {
       userRecord = await users.update(
         {'likes': db.fn('array_remove', db.col('likes'), `${req.params.address},${req.params.id}`)},
