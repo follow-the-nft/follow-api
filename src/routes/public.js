@@ -8,13 +8,14 @@ const publicRouter = express.Router();
 
 const OPENSEA_API_URL = process.env.OPENSEA_API_URL || 'https://api.opensea.io/api/v1';
 
-// Get NFT by NFT token address
-publicRouter.get('/nft/:id', async (req, res, next) => {
+// Get NFT by NFT address and token id
+// https://api.opensea.io/api/v1/asset/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB/1/
+publicRouter.get('/nft/:address/:id', async (req, res, next) => {
   try {
     if(!req.params.id) {
-      throw new Error("Please enter an id .e.g '/nft/20512672236384795134598454803080694359308106914252699625353424791001018400769'");
+      throw new Error("Please enter an address and id .e.g '/nft/1'");
     }
-    let response = await fetch(`${OPENSEA_API_URL}/assets?order_direction=desc&offset=0&token_ids=${req.params.id}`);
+    let response = await fetch(`${OPENSEA_API_URL}/asset/${req.params.address}/${req.params.id}`);
     const json = await response.json();
     res.status(200).json(json);
   } catch(err) {
@@ -36,7 +37,7 @@ publicRouter.get('/address/:address', async (req, res, next) => {
   }
 });
 
-// Get multiple wallet addresses passed as '/addresses/:addresses,:addresses,:addresses...
+// Get nfts owned by multiple wallet addresses passed as '/addresses/:addresses,:addresses,:addresses...
 publicRouter.get('/addresses/:addresses', async (req, res, next) => {
   try {
     if(!/[0xa-fA-F0-9]{42},?/g.test(req.params.addresses)) {

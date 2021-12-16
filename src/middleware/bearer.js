@@ -2,6 +2,7 @@
 
 const { users } = require('../models/index');
 
+// TODO: If this could return 401 on failure that would be great
 module.exports = async (req, res, next) => {
   try {
     if (!req.headers.authorization) {
