@@ -11,7 +11,7 @@ const notFoundHandler = require('./handlers/not-found');
 const publicRoutes = require('./routes/public');
 const likeRoutes = require('./routes/likes');
 const followRoutes = require('./routes/follows');
-const authRoutes = require('./auth-routes/authRoutes')
+const authRoutes = require('./auth-routes/authRoutes');
 
 // Prepare express
 const app = express();
