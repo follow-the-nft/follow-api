@@ -284,10 +284,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Heather Bisgaard - [@GitHub_handle](https://github.com/vbchomp) - vbchomp@gmail.com  
-Charlie Fadness - [@GitHub_handle](https://github.com/fadnesscharlie) - fadness.charlie@hotmail.com  
-Tom McGuire - [@GitHub_handle](https://github.com/MuckT) - mcgtom10@gmail.com  
-Jeremy Brazell - [@GitHub_handle](https://github.com/jeremywbrazell) - jwbrazell@gmail.com  
+Heather Bisgaard - [@vbchomp](https://github.com/vbchomp) - vbchomp@gmail.com  
+Charlie Fadness - [@fadnesscharlie](https://github.com/fadnesscharlie) - fadness.charlie@hotmail.com  
+Tom McGuire - [@MuckT](https://github.com/MuckT) - mcgtom10@gmail.com  
+Jeremy Brazell - [@Jeremywbrazell](https://github.com/jeremywbrazell) - jwbrazell@gmail.com  
 
 Project Link: [https://github.com/follow-the-nft/follow-the-nft-api](https://github.com/follow-the-nft/follow-the-nft-api)
 
